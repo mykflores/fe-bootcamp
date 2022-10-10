@@ -1,7 +1,7 @@
 import { Box, Flex, List, ListItem, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import React from "react";
 
 interface Page {
   name: string;
@@ -14,7 +14,6 @@ const PAGES: Page[] = [
 ];
 
 export const Layout: React.FC<any> = ({ children }) => {
-  const router = useRouter();
   return (
     <>
       <Head>
