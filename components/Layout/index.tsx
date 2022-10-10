@@ -10,7 +10,7 @@ interface Page {
 
 const PAGES: Page[] = [
   { name: "Home", url: "/" },
-  { name: "Posts", url: "/posts" },
+  { name: "Users", url: "/users" },
 ];
 
 export const Layout: React.FC<any> = ({ children }) => {
