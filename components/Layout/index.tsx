@@ -11,6 +11,7 @@ interface Page {
 const PAGES: Page[] = [
   { name: "Home", url: "/" },
   { name: "Users", url: "/users" },
+  { name: "Auth", url: "/auth" },
 ];
 
 export const Layout: React.FC<any> = ({ children }) => {
