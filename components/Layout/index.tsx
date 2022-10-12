@@ -2,6 +2,7 @@ import { Box, Flex, List, ListItem, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import { Header } from "../Header";
 
 interface Page {
   name: string;
@@ -12,6 +13,7 @@ const PAGES: Page[] = [
   { name: "Home", url: "/" },
   { name: "Users", url: "/users" },
   { name: "Auth", url: "/auth" },
+  { name: "UserList", url: "/user-list" },
 ];
 
 export const Layout: React.FC<any> = ({ children }) => {
@@ -43,8 +45,11 @@ export const Layout: React.FC<any> = ({ children }) => {
             ))}
           </List>
         </Box>
-        <Box w={"80vw"} ml={"20vw"} bg={"white"} p={4}>
+        <Box w={"80vw"} ml={"20vw"} bg={"white"}>
+          <Header />
+          <Box bg={"white"} p={4}>
           {children}
+          </Box>
         </Box>
       </Flex>
     </>
