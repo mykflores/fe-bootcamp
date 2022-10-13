@@ -1,15 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { setUser } from "./userSlice";
+// import { setUser } from "./userSlice";
 
 export const getUserDetails = createAsyncThunk(
   'user/getUserDetails',
   async (arg, { dispatch, getState, rejectWithValue }) => {
     try {
-      const users = getState()
-      console.log('user', users);
+      const store = getState();
+      console.log('store', store);
       const data = await axios.get(`https://63438d663f83935a78552378.mockapi.io/user`)
-      dispatch(setUser(data.data))
+      // dispatch(setUser(data.data))
       return data.data
       
     } catch (error: any) {

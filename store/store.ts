@@ -1,15 +1,26 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Middleware } from "@reduxjs/toolkit";
 import { authSlice } from "./auth/authSlice";
 import { userSlice } from "./user/userSlice";
 import { createWrapper } from "next-redux-wrapper";
+import { apiSlice } from "./user-rtk/api";
+import { slice } from "./user-rtk/slice";
+import baseQueryAPI from "./base-api-query";
+
+const storeMiddlewares: Middleware[] = [];
+storeMiddlewares.push(baseQueryAPI.middleware);
 
   export const makeStore = () => {
     const store = configureStore({
       reducer: {
         [authSlice.name]: authSlice.reducer,
         [userSlice.name]: userSlice.reducer,
+        [slice.name]: slice.reducer,
+        [apiSlice.reducerPath]: apiSlice.reducer,
       },
       devTools: true,
+      middleware: (getDefaultMiddleWare) => {
+        return getDefaultMiddleWare().concat(...storeMiddlewares)
+      }
     });
     return store;
   };

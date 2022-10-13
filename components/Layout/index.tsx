@@ -13,7 +13,8 @@ const PAGES: Page[] = [
   { name: "Home", url: "/" },
   { name: "Users", url: "/users" },
   { name: "Auth", url: "/auth" },
-  { name: "UserList", url: "/user-list" },
+  { name: "User List using toolkit", url: "/user-list" },
+  { name: "User List using rtk", url: "/user-list-rtk" },
 ];
 
 export const Layout: React.FC<any> = ({ children }) => {
